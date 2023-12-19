@@ -1,4 +1,4 @@
-import { URL, URLSearchParams } from 'whatwg-url';
+// import { URL, URLSearchParams } from 'node:url';
 import {
   redactValidConnectionString,
   redactConnectionString,
@@ -99,14 +99,10 @@ function caseInsenstiveURLSearchParams<K extends string = string>(Ctor: typeof U
 
 // Abstract middle class to appease TypeScript, see https://github.com/microsoft/TypeScript/pull/37894
 abstract class URLWithoutHost extends URL {
-  abstract get host(): never;
-  abstract set host(value: never);
-  abstract get hostname(): never;
-  abstract set hostname(value: never);
-  abstract get port(): never;
-  abstract set port(value: never);
-  abstract get href(): string;
-  abstract set href(value: string);
+  abstract host: never;
+  abstract hostname: never;
+  abstract port: never;
+  abstract href: string;
 }
 
 class MongoParseError extends Error {
